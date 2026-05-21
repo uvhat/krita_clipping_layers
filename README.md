@@ -1,4 +1,4 @@
-# krita_cliping_layers
+# krita_clipping_layers
 Krita mod with clipping layers feature
 
 This is clipping commit initialy started by Radian-art, fixed and completed to usable state by uvhat (me)
