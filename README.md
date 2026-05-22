@@ -23,7 +23,36 @@ in general it works fine for usual drawing without extra using filters, fill/pat
 
 2) Added additional stabiliser smoothing with pos-release stroke tail fading (taper/haraiso). I felt very bad trying to draw in Krita without postrelease tail fading, as it was in Illust Studio or CSP. That's why i added it. Some stabiliser settings override added to brush configs, so you can choose to use global settings or to set it per brush, same as in CSP.
 
-3) Also added experimental workaround for soft brushes - Smoothed dabs overlaps. In CSP/IllustStudio stroke is builded in high precision mode (i think it is at least 16 bit per channel) and only after stroke builded - it is converted to 8bit per channel and comitted to canvas layer data. This is reducing banding and fish retina pattern caused by precision error, that we can see in Krita in 8 bit mode. SAI2 using 16bit mode for everything internaly, so it is completely free from banding errors on soft brush strokes, but intreface is still using 8 bit colors and user operates colors in 8 bit model. Krita has 16 bit mode but it is way too slow compared to SAI and CSP and using 16 bit interface and UI, so this is very uncomfy, so in 8 bit mode users had only option to masking issue with high dithering...
+3) Also added experimental workaround for soft brushes - Smoothed dabs overlaps.
+In Krita soft dabs in 8 bit are builded very rough - soft brushes makes a lot of banding and retina artifacts during stroke drawing. Usual user approach to fix that - using high dithering, but this is not good too.
+<img width="400" alt="krita_soft_brushes2" src="https://github.com/user-attachments/assets/994a7b52-2fb1-4c7a-9f22-d20107b57b0f" />
+
+Banding and retina pattern are results of prevision error during dabs alpha or additive composition. For example, src 1 + dst 1 ring producing resulted pixel as 2. 1+2 = 3, 2+1 = 3, and etc. This is normal issue, but other apps have workaround for this, building dabs in higher precision color model:
+
+for example, in 8 bit mode we have dabs edge like:
+
+here is 8 bit result of blending gradient soft dabs in 8 bit space:
+```
+dstA8: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 2 2 2 2 1 1 1 1 0 0 0 0
+srcA8: 0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 2 2 2 2 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+resA8: 0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 2 2 3 3 2 2 3 3 2 2 3 3 3 3 2 2 2 2 1 1 1 1 0 0 0 0
+```
+as you can see, we have uneven result on overlaped area as 3 3 2 2 3 3 2 2 3 3 2 2 3 3 - this is our retina pattern artifacts.
+
+in 16 bit space same gradient have more different values:
+```
+dstA16: 0  0   0   0   0   0   0   0   0   0   0   0   0   0  64 128 192 256 320 384 448 512 576 640 704 768 834 834 768 704 640 576 512 448 384 320 256 192 128 64   0
+srcA16: 0 64 128 192 256 320 384 448 512 576 640 704 768 834 834 768 704 640 576 512 448 384 320 256 192 128  64   0   0   0   0   0   0   0   0   0   0   0   0  0   0
+resA16: 0 64 128 192 256 320 384 448 512 576 640 704 768 834 898 896 896 896 896 896 896 896 896 896 896 896 898 834 768 704 640 576 512 448 384 320 256 192 128 64   0
+```
+and if we convert result to 8 bit back we will got smoothed even gradient (compared to previous result):
+```
+resA8:  0  0   0   0   1   1   1   1   2   2   2   2   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   2   2   2   2   1   1   1   1   0   0   0  0
+```
+
+In CSP/IllustStudio stroke is builded in high precision color mode (i think it is at least 16 bit per channel) and only after stroke builded - it is converted to 8bit per channel and comitted to canvas layer data. This is reducing banding and fish retina pattern caused by precision error, that we can see in Krita in 8 bit mode. 
+
+SAI2 using 16bit mode for everything internaly, so it is completely free from banding errors on soft brush strokes, but intreface is still using 8 bit colors and user operates colors in 8 bit model. Krita has 16 bit mode but it is way too slow compared to SAI and CSP and using 16 bit interface and UI, so this is very uncomfy, so in 8 bit mode users had only option to masking issue with high dithering...
 
 <img width="400" alt="krita_soft_brushes11" src="https://github.com/user-attachments/assets/1d1eeb77-a9a0-43f1-b84a-7b87710332a3" />
 
