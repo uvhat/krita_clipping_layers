@@ -53,7 +53,7 @@ resA8:  0  0   0   0   1   1   1   1   2   2   2   2   3   3   3   3   3   3   3
 
 In CSP/IllustStudio stroke is builded in high precision color mode (i think it is at least 16 bit per channel) and only after stroke builded - it is converted to 8bit per channel and comitted to canvas layer data. This is reducing banding and fish retina pattern caused by precision error, that we can see in Krita in 8 bit mode. 
 
-SAI2 using 16bit mode for everything internaly, so it is completely free from banding errors on soft brush strokes, but intreface is still using 8 bit colors and user operates colors in 8 bit model. Krita has 16 bit mode but it is way too slow compared to SAI and CSP and using 16 bit interface and UI, so this is very uncomfy, so in 8 bit mode users had only option to masking issue with high dithering...
+SAI2 using 16bit mode for everything internaly, so it is completely free from banding errors on soft brush strokes, but intreface is still using 8 bit colors and user operates colors in 8 bit model. Krita has 16 bit mode but it is way too slow compared to SAI and CSP and using 16 bit interface and UI, so this is very uncomfy, so in 8 bit mode users have the only option to masking issue - using high dithering...
 
 <img width="400" alt="krita_soft_brushes11" src="https://github.com/user-attachments/assets/1d1eeb77-a9a0-43f1-b84a-7b87710332a3" />
 
