@@ -60,7 +60,7 @@ SAI2 using 16bit mode for everything internaly, so it is completely free from ba
 
 I added simplified building stroke in 16 bit mode, and convertion at end to 8 bit, this approach is close to CSP/IllustStudio approach. It is faster than using 16 bit mode, more accurate and smooth compared to dithering workaround and still using 8 bit coloring, but a bit slower than using 8 bit mode. This is per-brush setting.
 
-<img width="400" alt="smooth_dabs" src="https://github.com/user-attachments/assets/0be4f601-e861-4084-81f2-f74cb6b1056b" />
+<img width="800" alt="smooth_dabs" src="https://github.com/user-attachments/assets/0be4f601-e861-4084-81f2-f74cb6b1056b" />
 
 
 4) Another related fix for soft brushes - fixed fading of gaussian mask for auto brushes. In Krita gaussian mask with max softness setting never reaches zero value - it usually stucks on 2-3 (in 8 bit) for large brushes diameters, and this cause a very noticeable "border" or additional banding pattern on dabs overlaps areas. I adjusted gaussian mask calculation to allow it fade to zero smoothly.
