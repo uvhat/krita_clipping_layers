@@ -80,6 +80,9 @@ So technically this is just a build-up mode with opacity multiplied by max opaci
 
 7) Added better set for overview buttons and mirror X and Y actions. Krita has no Y mirror, only X mirror. So added both actions, shortcuts, and buttons on overview. You can now draw with one had with full control of canvas through overview buttons.
 
+<img width="400" alt="better_overview" src="https://github.com/user-attachments/assets/9a86c837-c947-49ec-9cb1-71ecc522446f" />
+
+
 8) Added KRITA_DISABLE_SYNC_EVENTS env variable for skipping unnecessary input events from heavy python plugins (Pigment O for example) which cause significant slow down of krita interface. There was a commit in Krita in 5.3.0+ that forces app to catch all inputs from python plugins. This caused to react Krita for any event. And some plugins spams them a lot. You can set this env variable in shortcut and launch krita with old plugins without stutters.
 
 9) Small fix for Wrap transform tool - preview is broken when you switch transform tool to wrap mode in 5.3.1
