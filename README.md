@@ -89,7 +89,7 @@ So technically this is just a build-up mode with opacity multiplied by max opaci
 
 10) added fast box blur mode for filter brush. Krita has only slow gaussian and box blur filter with common convolution kernel. Added more suitable mode - fast box blur with sliding window. Combined with gaussian mask and accumulation mode it makes blur processing that close to gaussian blur in other apps and in the same time it works much faster and practically usable even for large brush. Also it add link for width of kernel to current brush size with pressure respond, same as in CSP/IllustStudio.
 
-<img width="400" alt="fast_blur_g" src="https://github.com/user-attachments/assets/e8da5a03-cae3-4f77-bc74-286eecb1504c" />
+<img width="800" alt="fast_blur_g" src="https://github.com/user-attachments/assets/e8da5a03-cae3-4f77-bc74-286eecb1504c" />
 
 
 
