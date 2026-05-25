@@ -37,7 +37,7 @@ dstA8: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 2 2 2 2 1 1 1
 srcA8: 0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 2 2 2 2 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 resA8: 0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 2 2 3 3 2 2 3 3 2 2 3 3 3 3 2 2 2 2 1 1 1 1 0 0 0 0
 ```
-as you can see, we have uneven result on overlaped area as 3 3 2 2 3 3 2 2 3 3 2 2 3 3 - this is our retina pattern artifacts.
+as you can see, we have uneven result on overlaped area as 3 3 2 2 3 3 2 2 3 3 2 2 3 3 - this is our retina pattern artifacts. precision error here is 1/256
 
 in 16 bit space same gradient have more different values:
 ```
@@ -45,7 +45,8 @@ dstA16: 0  0   0   0   0   0   0   0   0   0   0   0   0   0  64 128 192 256 320
 srcA16: 0 64 128 192 256 320 384 448 512 576 640 704 768 834 834 768 704 640 576 512 448 384 320 256 192 128  64   0   0   0   0   0   0   0   0   0   0   0   0  0   0
 resA16: 0 64 128 192 256 320 384 448 512 576 640 704 768 834 898 896 896 896 896 896 896 896 896 896 896 896 898 834 768 704 640 576 512 448 384 320 256 192 128 64   0
 ```
-and if we convert result to 8 bit back we will got smoothed even gradient (compared to previous result):
+as you can see, precision error in overlap area is 1..2/65536
+and if we convert result to 8 bit back we will got smoothed even gradient compared to previous result:
 ```
 resA8:  0  0   0   0   1   1   1   1   2   2   2   2   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   2   2   2   2   1   1   1   1   0   0   0  0
 ```
