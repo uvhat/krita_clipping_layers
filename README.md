@@ -4,7 +4,7 @@ Krita mod with clipping layers feature
 This is clipping commit initialy started by Radian-art, fixed and completed to usable state by uvhat (me)
 And also here is more things for better approach drawing in krita to my habits from Illust Studio and SAI
 
-This build is based on stable 5.3.1.1 version using QT5.
+This build is based on stable 5.3.1.1 version using QT5. 4c7c2cac4dab5235cdad51bba505a2301d2a2ee2 https://invent.kde.org/graphics/krita/-/commit/4c7c2cac4dab5235cdad51bba505a2301d2a2ee2
 
 <img width="400" alt="clipped_layers" src="https://github.com/user-attachments/assets/aabae6c7-aa8c-48dd-9245-6a3cb4fe3a49" />
 
