@@ -12,12 +12,19 @@ This build is based on stable 5.3.1.1 version using QT5.
 Differences:
 1) clipping layers - same as in SAI/IllustStudio/PS/CSP/mdiapp based and others. current state:
 -clipping for usual layers and folder layers - working and fast
+
 -clipping for filter layers - slower than usual alpha inherit but usable at least for 1-2 filters layers. it could be accelerated with caching stack below filter layers but not much.
+
 -clipping for layers with heavy styles (drop shadows, glows, pattern fills etc) - uh, this works but very laggy and slow because styles requires to rebuild all clipping stack to layer projections, i don't know smart solution here.
+
 -caching of clipping layer group/stack projection from base to upper layer in stack
+
 -masks should works too
+
 -interface has al needed changes for clipping layers management
+
 -alpha inherit don't changed, you can choose to use both features for your needs.
+
 
 in general it works fine for usual drawing without extra using filters, fill/pattern layers and etc 
 
