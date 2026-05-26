@@ -89,7 +89,7 @@ New Wash Alpha:
 <img width="400" alt="wash_gaps_krita_limited_alpha_blend" src="https://github.com/user-attachments/assets/f4827d1d-694f-4195-9ac0-1da09431633b" />
 
 So technically this is just a build-up mode with opacity multiplied by max opacity of settings, so it keep max opacity limited by settings, but accumulate alpha and dabs same as build-up mode.
-This will allow to make smoother gradients with soft brushes while keeping max opacity of full stroke, that is impossible in Krita for now.
+This will allow to make smoother gradients with soft brushes while keeping max opacity of full stroke same as in IS/CSP/, that is impossible in Krita for now.
 
 <img width="800" alt="wash_gradients_compare" src="https://github.com/user-attachments/assets/a8ac89b1-be84-46bb-b9d5-ab30fd8d4655" />
 
