@@ -37,7 +37,7 @@ in general it works fine for usual drawing without extra using filters, fill/pat
 In Krita soft dabs in 8 bit are builded very rough - soft brushes makes a lot of banding and retina artifacts during stroke drawing. Usual user approach to fix that - using high dithering, but this is not good too.
 <img width="400" alt="krita_soft_brushes2" src="https://github.com/user-attachments/assets/994a7b52-2fb1-4c7a-9f22-d20107b57b0f" />
 
-Banding and retina pattern are results of prevision error during dabs alpha or additive composition. For example, src 1 + dst 1 ring producing resulted pixel as 2. 1+2 = 3, 2+1 = 3, and etc. This is normal issue, but other apps have workaround for this, building dabs in higher precision color model:
+Banding and retina pattern are results of precision error during dabs alpha or additive composition. For example, src 1 + dst 1 ring producing resulted pixel as 2. 1+2 = 3, 2+1 = 3, and etc. This is normal issue, but other apps have workaround for this, building dabs in higher precision color model:
 
 for example, in 8 bit mode we have dabs edge like:
 
