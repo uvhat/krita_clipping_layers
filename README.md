@@ -11,7 +11,7 @@ This build is based on stable 5.3.2.1 version using QT5.
 
 Differences:
 
-1) clipping layers - same as in SAI/IllustStudio/PS/CSP/mdiapp based and others. current state:
+### 1) clipping layers - same as in SAI/IllustStudio/PS/CSP/mdiapp based and others. current state:
 -clipping for usual layers and folder layers - working and fast
 
 -clipping for filter layers - slower than usual alpha inherit but usable at least for 1-2 filters layers. it could be accelerated with caching stack below filter layers but not much.
@@ -30,10 +30,17 @@ Differences:
 in general it works fine for usual drawing without extra using filters, fill/pattern layers and etc 
 
 
-2) Added additional stabiliser smoothing with pos-release stroke tail fading (taper/haraiso). I felt very bad trying to draw in Krita without postrelease tail fading, as it was in Illust Studio or CSP. That's why i added it. Some stabiliser settings override added to brush configs, so you can choose to use global settings or to set it per brush, same as in CSP.
+### 2) Additional stabiliser smoothing with pos-release stroke tail fading (taper/haraiso). 
+I felt very bad trying to draw in Krita without postrelease tail fading, as it was in Illust Studio or CSP. That's why i added it. Some stabiliser settings override added to brush configs, so you can choose to use global settings or to set it per brush, same as in CSP.
+Use it with Basic stabiliser, but approach works with weighted too. It has controls for fading tail length, waiting time for merging few strokes, smoothig for pressure, average points count and smoothing positions for slow and high cursor speed.
+
+<img width="407" height="421" alt="image" src="https://github.com/user-attachments/assets/2d9fdff8-8c42-47c4-bd39-3bf57e5b7901" />
 
 
-3) Also added experimental workaround for soft brushes - Smoothed dabs overlaps.
+
+
+
+### 3) Experimental workaround for soft brushes - Smoothed dabs overlaps.
 In Krita soft dabs in 8 bit are builded very rough - soft brushes makes a lot of banding and retina artifacts during stroke drawing. Usual user approach to fix that - using high dithering, but this is not good too.
 <img width="400" alt="krita_soft_brushes2" src="https://github.com/user-attachments/assets/994a7b52-2fb1-4c7a-9f22-d20107b57b0f" />
 
@@ -74,10 +81,12 @@ I added simplified building stroke in 16 bit mode, and convertion at end to 8 bi
 
 
 
-4) Another related fix for soft brushes - fixed fading of gaussian mask for auto brushes. In Krita gaussian mask with max softness setting never reaches zero value - it usually stucks on 2-3 (in 8 bit) for large brushes diameters, and this cause a very noticeable "border" or additional banding pattern on dabs overlaps areas. I adjusted gaussian mask calculation to allow it fade to zero smoothly.
+### 4) Fix non-zero fading for Gaussian mask in autobrush.
+Another related fix for soft brushes - fixed fading of gaussian mask for auto brushes. In Krita gaussian mask with max softness setting never reaches zero value - it usually stucks on 2-3 (in 8 bit) for large brushes diameters, and this cause a very noticeable "border" or additional banding pattern on dabs overlaps areas. I adjusted gaussian mask calculation to allow it fade to zero smoothly.
 
 
-5) Added new blending mode - Wash Alpha Build. This is identical to CSP/IllustStudio "with maximum overlap" mode and creates much better blending for soft brushes with preventing alpha accumulation between dabs in the same stroke. The usual Krita Wash mode has an issue - when you draw low opacity segment of stroke above already drawn high opacity segment of stroke this creates incorrect and weird "border" or "gap". This makes building smooth soft gradients extremely hard compared to how CSP/IllustStudio do this in max overlap mode. This issue resolved in Wash Alpha Build.
+### 5) Added new blending mode - Wash Alpha Build.
+This is identical to CSP/IllustStudio "with maximum overlap" mode and creates much better blending for soft brushes with preventing alpha accumulation between dabs in the same stroke. The usual Krita Wash mode has an issue - when you draw low opacity segment of stroke above already drawn high opacity segment of stroke this creates incorrect and weird "border" or "gap". This makes building smooth soft gradients extremely hard compared to how CSP/IllustStudio do this in max overlap mode. This issue resolved in Wash Alpha Build.
 
 Krita Wash:
 <img width="400" alt="wash_gaps_krita" src="https://github.com/user-attachments/assets/23b8703c-ddf1-4dc3-8f81-c83f85b7305c" />
@@ -95,18 +104,20 @@ This will allow to make smoother gradients with soft brushes while keeping max o
 
 
 
-7) Added better set for overview buttons and mirror X and Y actions. Krita has no Y mirror, only X mirror. So added both actions, shortcuts, and buttons on overview. You can now draw with one had with full control of canvas through overview buttons.
+### 6) New overview buttons.
+Added better set for overview buttons and mirror X and Y actions. Krita has no Y mirror, only X mirror. So added both actions, shortcuts, and buttons on overview. You can now draw with one had with full control of canvas through overview buttons.
 
 <img width="400" alt="better_overview" src="https://github.com/user-attachments/assets/9a86c837-c947-49ec-9cb1-71ecc522446f" />
 
 
-8) Added KRITA_DISABLE_SYNC_EVENTS env variable for skipping unnecessary input events from heavy python plugins (Pigment O for example) which cause significant slow down of krita interface. There was a commit in Krita in 5.3.0+ that forces app to catch all inputs from python plugins. This caused to react Krita for any event. And some plugins spams them a lot. You can set this env variable in shortcut and launch krita with old plugins without stutters.
+#### 7) Added KRITA_DISABLE_SYNC_EVENTS env variable for skipping unnecessary input events from heavy python plugins (Pigment O for example) which cause significant slow down of krita interface. There was a commit in Krita in 5.3.0+ that forces app to catch all inputs from python plugins. This caused to react Krita for any event. And some plugins spams them a lot. You can set this env variable in shortcut and launch krita with old plugins without stutters.
 
 
-9) Small fix for Wrap transform tool - preview is broken when you switch transform tool to wrap mode in 5.3.1
+#####8) Small fix for Wrap transform tool - preview is broken when you switch transform tool to wrap mode in 5.3.1 (fixed in 5.3.2.1)
 
 
-10) added fast box blur mode for filter brush. Krita has only slow gaussian and box blur filter with common convolution kernel. Added more suitable mode - fast box blur with sliding window. Combined with gaussian mask and accumulation mode it makes blur processing that close to gaussian blur in other apps and in the same time it works much faster and practically usable even for large brush. Also it add link for width of kernel to current brush size with pressure respond, same as in CSP/IllustStudio.
+### 9) Fast box blur mode for filter brush. 
+Krita has only slow gaussian and box blur filter with common convolution kernel. Added more suitable mode - fast box blur with sliding window. Combined with gaussian mask and accumulation mode it makes blur processing that close to gaussian blur in other apps and in the same time it works much faster and practically usable even for large brush. Also it add link for width of kernel to current brush size with pressure respond, same as in CSP/IllustStudio.
 
 <img width="800" alt="fast_blur_g" src="https://github.com/user-attachments/assets/e8da5a03-cae3-4f77-bc74-286eecb1504c" />
 
