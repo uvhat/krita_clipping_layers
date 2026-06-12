@@ -20,7 +20,7 @@ Differences:
 
 -caching of clipping layer group/stack projection from base to upper layer in stack
 
--masks should works too
+-masks should work too
 
 -interface has al needed changes for clipping layers management
 
