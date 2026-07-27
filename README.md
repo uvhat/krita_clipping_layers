@@ -120,11 +120,10 @@ Added better set for overview buttons and mirror X and Y actions. Krita has no Y
 Krita has only slow gaussian and box blur filter with common convolution kernel. Added more suitable mode - fast box blur with sliding window. Combined with gaussian mask and accumulation mode it makes blur processing that close to gaussian blur in other apps and in the same time it works much faster and practically usable even for large brush. Also it add link for width of kernel to current brush size with pressure respond, same as in CSP/IllustStudio.
 
 Idea is pretty simple:
--accumulation mode for accumulate filter result during stroke
 
--link kernel size with width current brush size including pressure control
-
--faster sliding window box blur algorithm (regular box blur in klrita is rather slow too)
+-accumulation mode for accumulate filter result during stroke;
+-link kernel size with width current brush size including pressure control;
+-faster sliding window box blur algorithm (regular box blur in klrita is rather slow too);
 
 with this IS was able in 2010 pefrom bluring fast enoug with 1000px size without any problem even on single core CPU, and it also works fine in Krita today =D
 
