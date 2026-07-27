@@ -121,7 +121,9 @@ Krita has only slow gaussian and box blur filter with common convolution kernel.
 
 Idea is pretty simple:
 -accumulation mode for accumulate filter result during stroke
+
 -link kernel size with width current brush size including pressure control
+
 -faster sliding window box blur algorithm (regular box blur in klrita is rather slow too)
 
 with this IS was able in 2010 pefrom bluring fast enoug with 1000px size without any problem even on single core CPU, and it also works fine in Krita today =D
