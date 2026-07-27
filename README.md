@@ -124,6 +124,8 @@ Idea is pretty simple:
 -link kernel size with width current brush size including pressure control
 -faster sliding window box blur algorithm (regular box blur in klrita is rather slow too)
 
+with this IS was able in 2010 pefrom bluring fast enoug with 1000px size without any problem even on single core CPU, and it also works fine in Krita today =D
+
 <img width="800" alt="fast_blur_g" src="https://github.com/user-attachments/assets/e8da5a03-cae3-4f77-bc74-286eecb1504c" />
 
 
