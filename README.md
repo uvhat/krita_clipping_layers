@@ -122,5 +122,13 @@ Krita has only slow gaussian and box blur filter with common convolution kernel.
 <img width="800" alt="fast_blur_g" src="https://github.com/user-attachments/assets/e8da5a03-cae3-4f77-bc74-286eecb1504c" />
 
 
+IllustStudio blur brush example:
+https://github.com/user-attachments/assets/072d5ccc-a3ca-4139-8498-240bde9b1686
+
+This Krita build blur brush example:
+[output.webm](https://github.com/user-attachments/assets/854334a9-3005-4330-a6c6-b997fcafb0d4)
+
+
+
 
 You can build krita with commits that i included as patches and look and work with them as you wish.
