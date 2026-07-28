@@ -127,6 +127,8 @@ Idea is pretty simple:
 
 with this IS was able in 2010 pefrom bluring fast enoug with 1000px size without any problem even on single core CPU, and it also works fine in Krita today =D
 
+But keep in mind that Krita using 8 bit color depth internally when working on current stroke instead of 16 bit like in CSP/SAI/Illust Studio, so blured dabs will still have same quantisation error as described above (i have not madden Smoothed dabs overlaps mode for filter brushes)
+
 <img width="800" alt="fast_blur_g" src="https://github.com/user-attachments/assets/e8da5a03-cae3-4f77-bc74-286eecb1504c" />
 
 
