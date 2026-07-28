@@ -42,6 +42,7 @@ Use it with Basic stabiliser, but approach works with weighted too. It has contr
 
 ### 3) Experimental workaround for soft brushes - Smoothed dabs overlaps.
 In Krita soft dabs in 8 bit are builded very rough - soft brushes makes a lot of banding and retina artifacts during stroke drawing. Usual user approach to fix that - using high dithering, but this is not good too.
+
 Saturated example of quantization error banding:
 <img width="400" alt="krita_soft_brushes2" src="https://github.com/user-attachments/assets/994a7b52-2fb1-4c7a-9f22-d20107b57b0f" />
 
