@@ -84,6 +84,9 @@ I added simplified building stroke in 16 bit mode, and convertion at end to 8 bi
 
 <video src="https://github.com/user-attachments/assets/9f492e7c-6d53-4c6b-a701-7ed28110cfcb"></video>
 
+Interactive example is here:
+<html>https://uvhat.github.io/krita_clipping_layers/</html>
+
 
 
 
