@@ -47,7 +47,7 @@ In Krita soft dabs in 8 bit are builded very rough - soft brushes makes a lot of
 https://github.com/user-attachments/assets/7425c435-3deb-4f1c-b9c7-bd4387c57ce3
 
 
-Interactive example of feature is here: https://uvhat.github.io/krita_clipping_layers/
+Interactive example of feature is here, you can select usual Krita stroke build and 16bit offscreen buffer (Illust/Clip Studio like): https://uvhat.github.io/krita_clipping_layers/
 
 Saturated example of quantization error banding:
 
