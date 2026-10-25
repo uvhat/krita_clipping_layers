@@ -88,7 +88,7 @@ Krita has 16 bit mode but it is way too slow compared to SAI and CSP and using 1
 
 I added simplified building stroke in 16 bit offscreen buffer, and convertion at end to 8 bit, this approach is close to CSP/IllustStudio approach. It is faster than using 16 bit mode, more accurate and smooth compared to dithering workaround and still using 8 bit coloring, but a bit slower than using 8 bit mode. This is per-brush setting.
 
-<video src="https://github.com/user-attachments/assets/9f492e7c-6d53-4c6b-a701-7ed28110cfcb"></video>
+https://github.com/user-attachments/assets/9f492e7c-6d53-4c6b-a701-7ed28110cfcb
 
 Interactive example is here:
 <html>https://uvhat.github.io/krita_clipping_layers/</html>
