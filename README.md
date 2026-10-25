@@ -41,7 +41,7 @@ Use it with Basic stabiliser, but approach works with weighted too. It has contr
 
 
 ### 3) Experimental workaround for soft brushes - Smoothed dabs overlaps.
-In Krita soft dabs in 8 bit are builded very rough - soft brushes makes a lot of banding and retina artifacts during stroke drawing. Usual user approach to fix that - using high dithering, but this is not good too.
+In Krita soft dabs in 8 bit are built very rough - soft brushes makes a lot of banding and retina artifacts during stroke drawing. Usual user approach to fix that - using high dithering, but this is not good too.
 
 
 https://github.com/user-attachments/assets/7425c435-3deb-4f1c-b9c7-bd4387c57ce3
@@ -77,7 +77,7 @@ and if we convert result to 8 bit back we will got smoothed even gradient compar
 resA8:  0  0   0   0   1   1   1   1   2   2   2   2   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   3   2   2   2   2   1   1   1   1   0   0   0  0
 ```
 
-In CSP/IllustStudio stroke is builded in high precision color mode (i think it is at least 16 bit per channel) and only after stroke builded - it is converted to 8bit per channel and comitted to canvas layer data. This is reducing banding and fish retina pattern caused by precision error, that we can see in Krita in 8 bit mode. 
+In CSP/IllustStudio stroke is built in high precision color mode (i think it is at least 16 bit per channel) and only after stroke built - it is converted to 8bit per channel and comitted to canvas layer data. This is reducing banding and fish retina pattern caused by precision error, that we can see in Krita in 8 bit mode. 
 
 SAI2 using 16bit mode for everything internaly, so it is completely free from banding errors on soft brush strokes even between two different separated strokes and between strokes on different layers, but intreface is still using 8 bit colors and user operates colors in 8 bit model. 
 
