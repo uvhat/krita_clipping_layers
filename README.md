@@ -86,7 +86,7 @@ Krita has 16 bit mode but it is way too slow compared to SAI and CSP and using 1
 <img width="800" alt="krita_soft_brushes11" src="https://github.com/user-attachments/assets/1d1eeb77-a9a0-43f1-b84a-7b87710332a3" />
 
 
-I added simplified building stroke in 16 bit mode, and convertion at end to 8 bit, this approach is close to CSP/IllustStudio approach. It is faster than using 16 bit mode, more accurate and smooth compared to dithering workaround and still using 8 bit coloring, but a bit slower than using 8 bit mode. This is per-brush setting.
+I added simplified building stroke in 16 bit offscreen buffer, and convertion at end to 8 bit, this approach is close to CSP/IllustStudio approach. It is faster than using 16 bit mode, more accurate and smooth compared to dithering workaround and still using 8 bit coloring, but a bit slower than using 8 bit mode. This is per-brush setting.
 
 <video src="https://github.com/user-attachments/assets/9f492e7c-6d53-4c6b-a701-7ed28110cfcb"></video>
 
