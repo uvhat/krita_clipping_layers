@@ -148,10 +148,12 @@ But keep in mind that Krita in 8 bit color depth mode using 8 bit color depth in
 
 
 IllustStudio blur brush example:
-<video src="https://github.com/user-attachments/assets/072d5ccc-a3ca-4139-8498-240bde9b1686"></video>
+
+https://github.com/user-attachments/assets/072d5ccc-a3ca-4139-8498-240bde9b1686
 
 This Krita build blur brush example:
-<video src="https://github.com/user-attachments/assets/854334a9-3005-4330-a6c6-b997fcafb0d4"></video>
+
+https://github.com/user-attachments/assets/854334a9-3005-4330-a6c6-b997fcafb0d4
 
 
 
